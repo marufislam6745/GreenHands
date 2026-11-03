@@ -2,8 +2,9 @@ import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
 import Image from 'next/image';
 import React from 'react';
-import { MapPin, CalendarDays,Trash2 } from "lucide-react";
+import { MapPin, CalendarDays } from "lucide-react";
 import { Events } from '@/type';
+import CanceljoinEvent from '@/Component/CanceljoinEvent';
 
 
 
@@ -14,8 +15,8 @@ const JoinEvent = async () => {
         headers: await headers()
     })
     const res = await fetch(`http://localhost:5000/join/${session?.user.email}`)
-    const data = await res.json()
-    const sortJoin: Events[] = data.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+    const data: Events[] = await res.json()
+    const sortJoin = data.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
     return (
         <div className="min-h-screen bg-green-50 px-4 py-12">
@@ -69,13 +70,7 @@ const JoinEvent = async () => {
 
                                 {/* Buttons */}
                                 <div className="items-center gap-3 pt-4 border-t border-gray-100">
-
-                                    <button
-                                        className="w-full text-lg bg-red-100 text-red-700 py-2 rounded-xl font-semibold hover:bg-red-600 hover:text-white transition flex items-center justify-center gap-2"
-                                    >
-                                    <Trash2 size={17}/>  Join Cancel
-                                    </button>
-
+                                    <CanceljoinEvent event={event}></CanceljoinEvent>
                                 </div>
                             </div>
                         </div>)
