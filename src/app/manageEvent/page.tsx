@@ -2,8 +2,10 @@ import { auth } from '@/lib/auth';
 import { Events } from '@/type';
 import { headers } from 'next/headers';
 import Image from 'next/image';
-import { MapPin, CalendarDays, Pencil, Trash2 } from "lucide-react";
+import { MapPin, CalendarDays } from "lucide-react";
 import React from 'react';
+import { EditeventPage } from '@/Component/Editevent';
+import DeleteEvent from '@/Component/DeleteEvent';
 
 const page = async () => {
     const session = await auth.api.getSession({
@@ -12,8 +14,8 @@ const page = async () => {
 
     const res = await fetch(`http://localhost:5000/events/${session?.user.email}`)
     const eventdata: Events[] = await res.json()
-    
-    const sortEvents=eventdata.sort((a,b)=>new Date(a.date).getTime()- new Date(b.date).getTime())
+
+    const sortEvents = eventdata.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
     return (
         <div className="min-h-screen bg-green-50 px-4 py-10 md:px-8">
@@ -70,21 +72,9 @@ const page = async () => {
 
                             {/* Buttons */}
                             <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                                <EditeventPage data={data}></EditeventPage>
 
-                                <button
-                                    className="flex-1 flex items-center justify-center gap-2 bg-green-100 text-green-700 py-2.5 rounded-xl font-semibold hover:bg-green-600 hover:text-white transition"
-                                >
-                                    <Pencil size={16} />
-                                    Edit
-                                </button>
-
-                                <button
-                                    className="flex-1 flex items-center justify-center gap-2 bg-red-50 text-red-600 py-2.5 rounded-xl font-semibold hover:bg-red-500 hover:text-white transition"
-                                >
-                                    <Trash2 size={16} />
-                                    Delete
-                                </button>
-
+                                <DeleteEvent data={data}></DeleteEvent>
                             </div>
                         </div>
                     </div>
