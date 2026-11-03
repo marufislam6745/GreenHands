@@ -53,7 +53,7 @@ const DeleteEvent = ({ data }:{data:Events}) => {
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                     <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction onClick={handledeletbtn} className='bg-white hover:bg-white text-red-500 border-red-500'>Delete</AlertDialogAction>
+                    <AlertDialogAction onClick={handledeletbtn} className='bg-white hover:bg-red-500 hover:text-white text-red-500 border-red-500'>Delete</AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>

@@ -14,14 +14,15 @@ interface ParamsProps {
 
 const page = async ({ params }: ParamsProps) => {
     const { eventsId } = await params
-    const res = await fetch(`http://localhost:5000/events/${eventsId}`)
+    //console.log(eventsId)
+    const res = await fetch(`http://localhost:5000/eventsby/${eventsId}`)
     const data = await res.json()
-
+    //console.log(data)
 
     return (
         <div className='bg-green-50'>
             <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
-                <Link href={'/events'}><p className='text-gray-400 pt-6 mb-9'>→ back</p></Link>
+                <Link href={'/events'}><p className='text-gray-400 pt-6 mb-9'> ← Back to Events</p></Link>
                 {/* Event Image */}
                 <div className="overflow-hidden rounded-2xl shadow-lg">
                     <Image

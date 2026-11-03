@@ -1,4 +1,5 @@
 'use client'
+import { authClient } from '@/lib/auth-client';
 import { Events } from '@/type';
 import React from 'react';
 import toast from 'react-hot-toast';
@@ -6,9 +7,12 @@ import toast from 'react-hot-toast';
 
 const JoinEvent = ({ data }: { data: Events }) => {
     //console.log(data)
+    const {data:session}=authClient.useSession()
+
     const handleJoin = async (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const userdata = {
+            useremail:session?.user.email,
             ...data,
             joinDate: new Date().toDateString()
         }

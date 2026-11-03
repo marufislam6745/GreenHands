@@ -101,7 +101,7 @@ export default function Navbar() {
                                                     <PopoverDescription>{session?.user.email} </PopoverDescription>
                                                     <PopoverTitle className="text-base font-bold border-t border-gray-300 hover:bg-gray-100"><Link href='/createEvent' className="flex items-center gap-1"><FcPlus /> Create Events</Link></PopoverTitle>
                                                     <PopoverTitle className="text-base font-bold hover:bg-gray-100"><Link href='/manageEvent' className="flex items-center gap-1"><MdManageAccounts className="text-purple-500" /> Manage Events </Link></PopoverTitle>
-                                                    <PopoverTitle className="text-base font-bold hover:bg-gray-100"><Link href='#' className="flex items-center gap-1"><FcApproval /> Joined Events</Link></PopoverTitle>
+                                                    <PopoverTitle className="text-base font-bold hover:bg-gray-100"><Link href='/joinEvent' className="flex items-center gap-1"><FcApproval /> Joined Events</Link></PopoverTitle>
                                                 </PopoverHeader>
                                             </PopoverContent>
                                         </Popover>
@@ -159,7 +159,7 @@ export default function Navbar() {
                                                 <PopoverDescription>{session?.user.email} </PopoverDescription>
                                                 <PopoverTitle className="text-base font-bold border-t border-gray-300 hover:bg-gray-100"><Link href='/createEvent' className="flex items-center gap-1"><FcPlus /> Create Events</Link></PopoverTitle>
                                                 <PopoverTitle className="text-base font-bold hover:bg-gray-100"><Link href='/manageEvent' className="flex items-center gap-1"><MdManageAccounts className="text-purple-500" /> Manage Events </Link></PopoverTitle>
-                                                <PopoverTitle className="text-base font-bold hover:bg-gray-100"><Link href='#' className="flex items-center gap-1"><FcApproval /> Joined Events</Link></PopoverTitle>
+                                                <PopoverTitle className="text-base font-bold hover:bg-gray-100"><Link href='/joinEvent' className="flex items-center gap-1"><FcApproval /> Joined Events</Link></PopoverTitle>
                                             </PopoverHeader>
                                         </PopoverContent>
                                     </Popover>
