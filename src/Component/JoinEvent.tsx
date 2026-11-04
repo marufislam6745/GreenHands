@@ -28,6 +28,9 @@ const JoinEvent = ({ data }: { data: Events }) => {
         if(joindata){
             toast.success('Join this event successfully')
         }
+        else{
+            toast.error(joindata.message || 'Something error!')
+        }
     }
 
 

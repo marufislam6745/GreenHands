@@ -9,7 +9,7 @@ const CanceljoinEvent = ({ event }: { event: Events }) => {
     
     const router=useRouter()
     const handleCancelbtn = async () => {
-        const res = await fetch(`http://localhost:5000/join/${event._id}`, {
+        const res = await fetch(`http://localhost:5000/joins/${event._id}`, {
             method: "DELETE"
         })
         const cancelJoin = await res.json()
