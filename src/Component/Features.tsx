@@ -5,7 +5,7 @@ import { Users, Settings, CalendarDays } from "lucide-react";
 
 const Features = () => {
     return (
-        <div className="py-12 px-4 sm:px-6 lg:px-8 bg-green-50">
+        <div className="py-9 px-4 sm:px-6 lg:px-8 bg-green-50">
             <div className='max-w-7xl mx-auto'>
                 <div className="text-center max-w-2xl mx-auto mb-14">
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-4">Built for Grassroots Action </h2>
