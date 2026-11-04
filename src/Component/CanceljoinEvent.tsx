@@ -30,7 +30,7 @@ const CanceljoinEvent = ({ event }: { event: Events }) => {
                 onClick={handleCancelbtn}
                 className="w-full text-lg bg-red-100 text-red-700 py-2 rounded-xl font-semibold hover:bg-red-600 hover:text-white transition flex items-center justify-center gap-2"
             >
-                <Trash2 size={17} />  Join Cancel
+                <Trash2 size={17} />  Leave event
             </button>
         </div>
     );

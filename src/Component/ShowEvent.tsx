@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import { MapPin, CalendarDays } from "lucide-react";
 import Link from 'next/link';
+import { SearchBar } from './SearchBar';
 
 
 const categories = [
@@ -34,19 +35,22 @@ const ShowEvent = ({ events }: { events: Events[] }) => {
                 </div> */}
 
                 {/* Tabs */}
-                <div className="flex flex-wrap justify-center gap-3 mb-10">
-                    {categories.map((category) => (
-                        <button
-                            key={category}
-                            onClick={() => setActiveTab(category)}
-                            className={`px-5 py-2 rounded-full font-semibold transition-all duration-300 ${activeTab === category
-                                ? "bg-green-600 text-white shadow-lg shadow-green-200"
-                                : "bg-white text-gray-600 hover:bg-green-50 hover:text-green-600"
-                                }`}
-                        >
-                            {category}
-                        </button>
-                    ))}
+                <div className='lg:flex items-center justify-between'>
+                    <div className="flex flex-wrap justify-center gap-3 mb-10">
+                        {categories.map((category) => (
+                            <button
+                                key={category}
+                                onClick={() => setActiveTab(category)}
+                                className={`px-5 py-2 rounded-full font-semibold transition-all duration-300 ${activeTab === category
+                                    ? "bg-green-600 text-white shadow-lg shadow-green-200"
+                                    : "bg-white text-gray-600 hover:bg-green-50 hover:text-green-600"
+                                    }`}
+                            >
+                                {category}
+                            </button>
+                        ))}
+                    </div>
+                    <SearchBar></SearchBar>
                 </div>
 
                 {/* Event Cards */}
