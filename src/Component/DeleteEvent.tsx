@@ -16,22 +16,28 @@ import { Button } from "@/components/ui/button"
 import { Events } from "@/type";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { getTokenClient } from "@/lib/getTokenClient";
 
-const DeleteEvent = ({ data }:{data:Events}) => {
-    
-    const router=useRouter()
+const DeleteEvent = ({ data }: { data: Events }) => {
+
+    const router = useRouter()
     const handledeletbtn = async () => {
-        const res = await fetch(`http://localhost:5000/events/${data._id}`,{
-            method:"DELETE"
+        const token = await getTokenClient()
+
+        const res = await fetch(`http://localhost:5000/events/${data._id}`, {
+            method: "DELETE",
+            headers: {
+                authorization: `Bearer ${token}`
+            }
         })
         const deletedata = await res.json()
-        if(deletedata){
+        if (deletedata) {
             toast.success('Event delete successfully')
         }
-        else{
+        else {
             toast.error(deletedata.message || 'Something wrong!')
         }
-        if(deletedata.deletedCount>0){
+        if (deletedata.deletedCount > 0) {
             router.refresh()
         }
     }

@@ -4,22 +4,28 @@ import { Trash2 } from "lucide-react";
 import { Events } from '@/type';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import { getTokenClient } from '@/lib/getTokenClient';
 
 const CanceljoinEvent = ({ event }: { event: Events }) => {
-    
-    const router=useRouter()
+
+    const router = useRouter()
     const handleCancelbtn = async () => {
+        const token=await getTokenClient()
         const res = await fetch(`http://localhost:5000/joins/${event._id}`, {
-            method: "DELETE"
+            method: "DELETE",
+            headers: {
+                authorization: `Bearer ${token}`
+            }
         })
         const cancelJoin = await res.json()
+
         if (cancelJoin) {
             toast.success('Event delete successfully')
         }
         else {
             toast.error(cancelJoin.message || 'Something wrong!')
         }
-        if(cancelJoin.deletedCount > 0){
+        if (cancelJoin.deletedCount > 0) {
             router.refresh()
         }
     }

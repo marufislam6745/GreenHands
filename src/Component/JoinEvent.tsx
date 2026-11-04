@@ -1,5 +1,6 @@
 'use client'
 import { authClient } from '@/lib/auth-client';
+import { getTokenClient } from '@/lib/getTokenClient';
 import { Events } from '@/type';
 import React from 'react';
 import toast from 'react-hot-toast';
@@ -7,28 +8,31 @@ import toast from 'react-hot-toast';
 
 const JoinEvent = ({ data }: { data: Events }) => {
     //console.log(data)
-    const {data:session}=authClient.useSession()
+    const { data: session } = authClient.useSession()
 
-    const handleJoin = async (e:React.FormEvent<HTMLFormElement>) => {
+    const handleJoin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const userdata = {
-            useremail:session?.user.email,
+            useremail: session?.user.email,
             ...data,
             joinDate: new Date().toDateString()
         }
         //console.log(userdata)
-        const res=await fetch(`http://localhost:5000/join`,{
-            method:"POST",
-            headers:{
-                'content-Type': 'application/json'
+        const token = await getTokenClient()
+        
+        const res = await fetch(`http://localhost:5000/join`, {
+            method: "POST",
+            headers: {
+                'content-Type': 'application/json',
+                authorization: `Bearer ${token}`
             },
-            body:JSON.stringify(userdata)
+            body: JSON.stringify(userdata)
         })
-        const joindata=await res.json()
-        if(joindata){
+        const joindata = await res.json()
+        if (joindata) {
             toast.success('Join this event successfully')
         }
-        else{
+        else {
             toast.error(joindata.message || 'Something error!')
         }
     }

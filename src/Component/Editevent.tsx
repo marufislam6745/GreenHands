@@ -10,11 +10,13 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { FieldGroup } from "@/components/ui/field"
+import { getTokenClient } from "@/lib/getTokenClient";
 import { Events } from "@/type";
 import { Pencil } from "lucide-react";
 import { ChevronDown } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 
 
@@ -37,14 +39,21 @@ export function EditeventPage({ data }: { data: Events }) {
         const formData = new FormData(e.currentTarget)
         const editdata = Object.fromEntries(formData.entries())
         //console.log(editdata)
+        const token = await getTokenClient()
+
         const res = await fetch(`http://localhost:5000/events/${data._id}`, {
             method: "PATCH",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                authorization: `Bearer ${token}`
             },
             body: JSON.stringify(editdata)
         })
         const updateData = await res.json()
+
+        if (updateData) {
+            toast.success('Data update successfully')
+        }
         //console.log(updateData)
         if (updateData.modifiedCount > 0) {
             router.refresh()

@@ -1,5 +1,5 @@
 import JoinEvent from '@/Component/JoinEvent';
-
+import { getTokenServer } from '@/lib/getTokenServer';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -14,8 +14,15 @@ interface ParamsProps {
 
 const page = async ({ params }: ParamsProps) => {
     const { eventsId } = await params
+
+   const token=await getTokenServer()
+    
     //console.log(eventsId)
-    const res = await fetch(`http://localhost:5000/eventsby/${eventsId}`)
+    const res = await fetch(`http://localhost:5000/eventsby/${eventsId}`, {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    })
     const data = await res.json()
     //console.log(data)
 

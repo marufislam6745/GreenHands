@@ -6,13 +6,20 @@ import { MapPin, CalendarDays } from "lucide-react";
 import React from 'react';
 import { EditeventPage } from '@/Component/Editevent';
 import DeleteEvent from '@/Component/DeleteEvent';
+import { getTokenServer } from '@/lib/getTokenServer';
 
 const page = async () => {
     const session = await auth.api.getSession({
         headers: await headers()
     })
 
-    const res = await fetch(`http://localhost:5000/events/${session?.user.email}`)
+    const token = await getTokenServer()
+
+    const res = await fetch(`http://localhost:5000/events/${session?.user.email}`, {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    })
     const eventdata: Events[] = await res.json()
 
     const sortEvents = eventdata.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())

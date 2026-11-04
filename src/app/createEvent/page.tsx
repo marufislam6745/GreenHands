@@ -4,6 +4,7 @@ import { Save, ChevronDown } from "lucide-react";
 import Link from 'next/link';
 import toast from 'react-hot-toast';
 import { authClient } from '@/lib/auth-client';
+import { getTokenClient } from '@/lib/getTokenClient';
 
 
 
@@ -16,28 +17,32 @@ const EventcreatePage = () => {
         day: "2-digit",
     }).format(new Date());
 
-    const {data:session}=authClient.useSession()
+    const { data: session } = authClient.useSession()
 
-    const handlesubmit=async(e: React.FormEvent<HTMLFormElement>)=>{
+    const handlesubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        const formData=new FormData(e.currentTarget)
-        const data=Object.fromEntries(formData.entries())
+        const formData = new FormData(e.currentTarget)
+        const data = Object.fromEntries(formData.entries())
         //console.log(addData)
-        const userData={
-            name:session?.user.name,
-            email:session?.user.email,
+        const userData = {
+            name: session?.user.name,
+            email: session?.user.email,
             ...data
         }
-        const res=await fetch(`http://localhost:5000/addevents`,{
-            method:"POST",
-            headers:{
-                 "Content-Type": "application/json",
-            },
-            body:JSON.stringify(userData)
-        })
-        const addData=await res.json()
 
-        if(addData){
+        const token = await getTokenClient()
+        
+        const res = await fetch(`http://localhost:5000/addevents`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(userData)
+        })
+        const addData = await res.json()
+
+        if (addData) {
             toast.success('Data add Successfully')
         }
     }

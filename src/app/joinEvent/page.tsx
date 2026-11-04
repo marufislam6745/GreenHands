@@ -5,6 +5,7 @@ import React from 'react';
 import { MapPin, CalendarDays } from "lucide-react";
 import { Events } from '@/type';
 import CanceljoinEvent from '@/Component/CanceljoinEvent';
+import { getTokenServer } from '@/lib/getTokenServer';
 
 
 
@@ -14,7 +15,12 @@ const JoinEvent = async () => {
     const session = await auth.api.getSession({
         headers: await headers()
     })
-    const res = await fetch(`http://localhost:5000/join/${session?.user.email}`)
+    const token = await getTokenServer()
+    const res = await fetch(`http://localhost:5000/join/${session?.user.email}`, {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    })
     const data: Events[] = await res.json()
     const sortJoin = data.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
