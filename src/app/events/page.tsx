@@ -6,7 +6,7 @@ import React from 'react';
 
 
 const page = async () => {
-    const res = await fetch(`http://localhost:5000/events`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events`)
     const events = await res.json()
     return (
         <div className="min-h-screen bg-green-50 px-4 py-10">

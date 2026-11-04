@@ -16,7 +16,7 @@ const JoinEvent = async () => {
         headers: await headers()
     })
     const token = await getTokenServer()
-    const res = await fetch(`http://localhost:5000/join/${session?.user.email}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/join/${session?.user.email}`, {
         headers: {
             authorization: `Bearer ${token}`
         }

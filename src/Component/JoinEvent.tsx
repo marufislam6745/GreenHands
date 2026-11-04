@@ -19,8 +19,8 @@ const JoinEvent = ({ data }: { data: Events }) => {
         }
         //console.log(userdata)
         const token = await getTokenClient()
-        
-        const res = await fetch(`http://localhost:5000/join`, {
+
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/join`, {
             method: "POST",
             headers: {
                 'content-Type': 'application/json',

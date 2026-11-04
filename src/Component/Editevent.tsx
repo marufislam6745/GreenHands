@@ -41,7 +41,7 @@ export function EditeventPage({ data }: { data: Events }) {
         //console.log(editdata)
         const token = await getTokenClient()
 
-        const res = await fetch(`http://localhost:5000/events/${data._id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events/${data._id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

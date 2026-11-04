@@ -4,7 +4,7 @@ import React from 'react';
 
 const Gallerydata = async () => {
 
-    const res = await fetch(`http://localhost:5000/gallery`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/gallery`)
     const data: Events[] = await res.json()
     const sortdata = data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 

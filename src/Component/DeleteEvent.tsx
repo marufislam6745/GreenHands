@@ -24,7 +24,7 @@ const DeleteEvent = ({ data }: { data: Events }) => {
     const handledeletbtn = async () => {
         const token = await getTokenClient()
 
-        const res = await fetch(`http://localhost:5000/events/${data._id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events/${data._id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${token}`

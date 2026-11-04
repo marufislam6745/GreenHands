@@ -11,7 +11,7 @@ const CanceljoinEvent = ({ event }: { event: Events }) => {
     const router = useRouter()
     const handleCancelbtn = async () => {
         const token=await getTokenClient()
-        const res = await fetch(`http://localhost:5000/joins/${event._id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/joins/${event._id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${token}`

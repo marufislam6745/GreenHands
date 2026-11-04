@@ -18,7 +18,7 @@ const page = async ({ params }: ParamsProps) => {
    const token=await getTokenServer()
     
     //console.log(eventsId)
-    const res = await fetch(`http://localhost:5000/eventsby/${eventsId}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/eventsby/${eventsId}`, {
         headers: {
             authorization: `Bearer ${token}`
         }

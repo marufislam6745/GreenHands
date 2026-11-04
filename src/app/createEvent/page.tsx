@@ -31,8 +31,8 @@ const EventcreatePage = () => {
         }
 
         const token = await getTokenClient()
-        
-        const res = await fetch(`http://localhost:5000/addevents`, {
+
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/addevents`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

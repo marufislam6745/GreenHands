@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 
 const RecentEvent = async () => {
-    const res = await fetch(`http://localhost:5000/recentevents`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/recentevents`)
     const data: Events[] = await res.json()
 
     const sortdata = data.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())

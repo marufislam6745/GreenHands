@@ -19,7 +19,7 @@ export function SearchBar() {
     const handleSearchBar = async (value: string) => {
         setSearch(value)
 
-        const res = await fetch(`http://localhost:5000/eventsear/search?search=${encodeURIComponent(value)}`)
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/eventsear/search?search=${encodeURIComponent(value)}`)
         const data = await res.json()
         setEvents(data)
     }
