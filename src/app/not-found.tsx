@@ -10,13 +10,13 @@ export default function NotFound() {
                 {/* 404 Illustration */}
                 <div className="relative mb-6">
 
-                    <h1 className="text-[120px] sm:text-[180px] font-extrabold leading-none text-green-100">
+                    <h1 className="text-[120px] sm:text-[180px] font-extrabold leading-none text-green-200">
                         404
                     </h1>
 
                     <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-20 h-20 sm:w-28 sm:h-28 bg-green-600 rounded-full flex items-center justify-center shadow-xl shadow-green-200">
-                            <Leaf className="w-10 h-10 sm:w-14 sm:h-14 text-white" />
+                            <Leaf className="w-11 h-10 sm:w-14 sm:h-14 text-white" />
                         </div>
                     </div>
 

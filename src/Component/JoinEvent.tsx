@@ -20,20 +20,24 @@ const JoinEvent = ({ data }: { data: Events }) => {
         //console.log(userdata)
         const token = await getTokenClient()
 
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/join`, {
-            method: "POST",
-            headers: {
-                'content-Type': 'application/json',
-                authorization: `Bearer ${token}`
-            },
-            body: JSON.stringify(userdata)
-        })
-        const joindata = await res.json()
-        if (joindata) {
-            toast.success('Join this event successfully')
-        }
-        else {
-            toast.error(joindata.message || 'Something error!')
+        if (session?.user) {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/join`, {
+                method: "POST",
+                headers: {
+                    'content-Type': 'application/json',
+                    authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify(userdata)
+            })
+            const joindata = await res.json()
+            if (joindata) {
+                toast.success('Join this event successfully')
+            }
+            else {
+                toast.error(joindata.message || 'Something error!')
+            }
+        }else{
+            toast.error('You must log in before joining the event.')
         }
     }
 

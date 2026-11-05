@@ -21,6 +21,7 @@ import { MdManageAccounts } from "react-icons/md";
 import { redirect } from "next/navigation";
 
 
+
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [dark, setDark] = useState(false);
