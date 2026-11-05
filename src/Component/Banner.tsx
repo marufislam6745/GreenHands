@@ -80,19 +80,19 @@ const Banner = () => {
                 </div>
             </div>
             <div className='max-w-7xl mx-auto sm:px-6 lg:px-8 mt-16 lg:flex items-center justify-center gap-9'>
-                <div className='bg-green-700 text-white p-4 rounded-2xl'>
+                <div className='bg-green-700 text-white p-4 rounded-2xl mb-2'>
                     <h3 className='text-3xl font-bold'>1250+</h3>
                     <p>Volunteers</p>
                 </div>
-                <div className='bg-green-700 text-white p-4 rounded-2xl'>
+                <div className='bg-green-700 text-white p-4 rounded-2xl mb-2'>
                     <h3 className='text-3xl font-bold'>120+</h3>
                     <p>Events completed</p>
                 </div>
-                <div className='bg-green-700 text-white p-4 rounded-2xl'>
+                <div className='bg-green-700 text-white p-4 rounded-2xl mb-2'>
                     <h3 className='text-3xl font-bold'>19000+</h3>
                     <p>Lives Impacted</p>
                 </div>
-                <div className='bg-green-700 text-white p-4 rounded-2xl '>
+                <div className='bg-green-700 text-white p-4 rounded-2xl mb-2'>
                     <h3 className='text-3xl font-bold'>100%</h3>
                     <p>Community Driven</p>
                 </div>
