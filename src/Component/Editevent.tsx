@@ -54,6 +54,9 @@ export function EditeventPage({ data }: { data: Events }) {
         if (updateData) {
             toast.success('Data update successfully')
         }
+        else{
+            toast.error(updateData.message || 'Something errror!')
+        }
         //console.log(updateData)
         if (updateData.modifiedCount > 0) {
             router.refresh()
@@ -81,6 +84,7 @@ export function EditeventPage({ data }: { data: Events }) {
                                 onChange={(e) => update("title", e.target.value)}
                                 type="text"
                                 name='title'
+                                required
                                 placeholder="event title"
                                 className="w-full border border-gray-200 bg-gray-50 px-3 py-2.5 text-sm text-gray-700 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500"
                             />
@@ -98,6 +102,7 @@ export function EditeventPage({ data }: { data: Events }) {
                                     <select
                                         onChange={(e) => update("type", e.target.value)}
                                         name='type'
+                                        required
                                         className="w-full appearance-none border border-gray-200 bg-gray-50 px-3 py-2.5 text-sm text-gray-700 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500"
                                         defaultValue="Tree plantation"
                                     >
@@ -125,6 +130,7 @@ export function EditeventPage({ data }: { data: Events }) {
                                     type="date"
                                     name="date"
                                     min={today}
+                                    required
                                     className="w-full border border-gray-200 bg-gray-50 px-3 py-2.5 text-sm text-gray-600 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500"
                                 />
                             </div>
@@ -139,6 +145,7 @@ export function EditeventPage({ data }: { data: Events }) {
                                 onChange={(e) => update('location', e.target.value)}
                                 type="text"
                                 name="location"
+                                required
                                 placeholder='event location'
                                 className="w-full border border-gray-200 bg-gray-50 px-3 py-2.5 text-sm text-gray-600 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500"
                             />
@@ -156,6 +163,7 @@ export function EditeventPage({ data }: { data: Events }) {
                                 type="url"
                                 name="image"
                                 placeholder="https://example.com/image.jpg"
+                                required
                                 className="w-full border border-gray-200 bg-gray-50 px-3 py-2.5 text-sm text-gray-700 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500"
                             />
                         </div>
@@ -170,6 +178,7 @@ export function EditeventPage({ data }: { data: Events }) {
                                 value={form.description}
                                 onChange={(e) => update('description', e.target.value)}
                                 name="description"
+                                required
                                 placeholder="Describe the event experience..."
                                 className="w-full resize-none border border-gray-200 bg-gray-50 px-3 py-3 text-sm text-gray-700 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500"
                             ></textarea>

@@ -16,11 +16,12 @@ export function SearchBar() {
     const [search, setSearch] = useState("");
     const [events, setEvents] = useState([]);
 
-    const handleSearchBar = async (value: string) => {
-        setSearch(value)
+    const handleSearchBar = async (e: string) => {
+        setSearch(e)
 
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/eventsear/search?search=${encodeURIComponent(value)}`)
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/eventsear/search?search=${encodeURIComponent(e)}`)
         const data = await res.json()
+        console.log(data)
         setEvents(data)
     }
     return (

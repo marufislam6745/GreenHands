@@ -14,7 +14,7 @@ const page = async () => {
     })
 
     const token = await getTokenServer()
-
+    //console.log(token)
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events/${session?.user.email}`, {
         headers: {
             authorization: `Bearer ${token}`

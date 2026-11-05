@@ -85,9 +85,11 @@ const SignupPage = () => {
                             <div className="relative">
                                 <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-500 text-xl">
                                     ♙</span>
-                                <input type="text"
+                                <input
+                                    type="text"
                                     name="name"
                                     placeholder="your name"
+                                    required
                                     className="w-full h-9 sm:h-10 bg-[#f5f7f8] border border-gray-200 pl-9 pr-3 text-sm text-gray-700 outline-none focus:border-[#18a3c1] focus:ring-1 focus:ring-[#18a3c1] transition" />
                             </div>
                         </div>
@@ -107,6 +109,7 @@ const SignupPage = () => {
                                     type="email"
                                     name="email"
                                     placeholder="Enter your email"
+                                    required
                                     className="w-full h-9 sm:h-10 bg-[#f5f7f8] border border-gray-200 pl-9 pr-3 text-sm text-gray-700 outline-none focus:border-[#18a3c1] focus:ring-1 focus:ring-[#18a3c1] transition"
                                 />
                             </div>
@@ -123,6 +126,7 @@ const SignupPage = () => {
                                 <input type="url"
                                     name="image"
                                     placeholder="https://image-url.com"
+                                    required
                                     className="w-full h-9 sm:h-10 bg-[#f5f7f8] border border-gray-200 pl-9 pr-3 text-sm text-gray-700 outline-none focus:border-[#18a3c1] focus:ring-1 focus:ring-[#18a3c1] transition"
                                 />
                             </div>
@@ -145,6 +149,7 @@ const SignupPage = () => {
                                     type={showPassword ? "text" : "password"}
                                     name="password"
                                     placeholder="Create a password"
+                                    required
                                     className="w-full h-9 sm:h-10 bg-[#f5f7f8] border border-gray-200 pl-9 pr-10 text-sm text-gray-700 outline-none focus:border-[#18a3c1] focus:ring-1 focus:ring-[#18a3c1] transition"
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
@@ -196,7 +201,7 @@ const SignupPage = () => {
 
                     {/* Google Button */}
                     <button
-                    onClick={handlegooglebtn}
+                        onClick={handlegooglebtn}
                         type="button"
                         className="w-full h-11 border border-gray-200 bg-white hover:bg-gray-50 flex items-center justify-center gap-2 text-sm text-gray-800 transition"
                     >

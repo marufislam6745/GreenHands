@@ -46,6 +46,7 @@ const EventcreatePage = () => {
             toast.success('Data add Successfully')
         }
     }
+
     return (
         <div className="min-h-screen bg-white px-4 py-6 sm:px-6 lg:px-8">
             <div className='max-w-7xl mx-auto pl-6 text-gray-400 mb-4'>
@@ -71,6 +72,7 @@ const EventcreatePage = () => {
                             type="text"
                             name='title'
                             placeholder="event title"
+                            required
                             className="w-full border border-gray-200 bg-gray-50 px-3 py-2.5 text-sm text-gray-700 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500"
                         />
                     </div>
@@ -86,6 +88,7 @@ const EventcreatePage = () => {
                             <div className="relative">
                                 <select
                                     name='type'
+                                    required
                                     className="w-full appearance-none border border-gray-200 bg-gray-50 px-3 py-2.5 text-sm text-gray-700 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500"
                                     defaultValue="Tree plantation"
                                 >
@@ -111,6 +114,7 @@ const EventcreatePage = () => {
                                 type="date"
                                 name="date"
                                 min={today}
+                                required
                                 className="w-full border border-gray-200 bg-gray-50 px-3 py-2.5 text-sm text-gray-600 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500"
                             />
                         </div>
@@ -123,6 +127,7 @@ const EventcreatePage = () => {
                         <input
                             type="text"
                             name="location"
+                            required
                             placeholder='event location'
                             className="w-full border border-gray-200 bg-gray-50 px-3 py-2.5 text-sm text-gray-600 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500"
                         />
@@ -138,6 +143,7 @@ const EventcreatePage = () => {
                             type="url"
                             name="image"
                             placeholder="https://example.com/image.jpg"
+                            required
                             className="w-full border border-gray-200 bg-gray-50 px-3 py-2.5 text-sm text-gray-700 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500"
                         />
                     </div>
@@ -150,6 +156,7 @@ const EventcreatePage = () => {
 
                         <textarea
                             name="description"
+                            required
                             placeholder="Describe the event experience..."
                             className="w-full resize-none border border-gray-200 bg-gray-50 px-3 py-3 text-sm text-gray-700 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500"
                         ></textarea>
