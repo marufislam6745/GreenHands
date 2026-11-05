@@ -1,3 +1,50 @@
+🌱 GreenHands – Social Development Events Platform
+
+GreenHands is a community-driven platform that connects volunteers with social development events. Users can participate in tree plantation, blood donation, and clean-up campaigns or organize their own events to make a positive impact on society.
+
+🌐 Live Website : https://green-hands-three.vercel.app
+
+Client-side URL: https://github.com/marufislam6745/GreenHands
+
+✨ Key Features
+
+User Authentication: Secure login and registration system with email/password and social login.
+
+Create Events: Authenticated users can create and publish social development events.
+
+Upcoming Events: Explore upcoming events related to tree plantation, blood donation, and clean-up campaigns.
+
+Join Events: Users can participate in events and contribute to their communities.
+
+Manage Events: Users can view, update, and delete the events they have created.
+
+Joined Events: Users can see all the events they have joined.
+
+Responsive Design: Fully responsive interface for mobile, tablet, and desktop devices.
+
+Modern UI: Clean and user-friendly design with light and dark theme support.
+
+🛠️ Technologies Used
+
+Next.js
+
+React.js
+
+Tailwind CSS
+
+Node.js
+
+Express.js
+
+MongoDB
+
+Better Auth Authentication
+
+JavaScript
+
+React Icons / Lucide React
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
