@@ -19,12 +19,12 @@ import { FcApproval } from "react-icons/fc";
 import { FcPlus } from "react-icons/fc";
 import { MdManageAccounts } from "react-icons/md";
 import { redirect } from "next/navigation";
+import ThemeToggle from "./ThemeToggle";
 
 
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
-    const [dark, setDark] = useState(false);
 
     const { data: session } = authClient.useSession()
     //console.log(session?.user)
@@ -74,13 +74,14 @@ export default function Navbar() {
                     <div className="flex items-center gap-3">
 
                         {/* Theme Button */}
-                        <button
+                        {/* <button
                             onClick={() => setDark(!dark)}
                             className="w-9 h-9 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-100 transition"
                             aria-label="Toggle theme"
                         >
                             {dark ? "☀️" : "🌙"}
-                        </button>
+                        </button> */}
+                        <ThemeToggle></ThemeToggle>
 
                         <div className="hidden items-center gap-4 text-sm md:flex">
                             {
@@ -143,7 +144,7 @@ export default function Navbar() {
                         </Link>
                         {
                             session?.user ?
-                                <div className="flex items-center justify-center gap-2">
+                                <div className="flex items-center justify-start gap-2">
                                     < Popover >
                                         <PopoverTrigger asChild>
 
