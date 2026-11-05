@@ -197,7 +197,7 @@ export default function Navbar() {
                                     </button>
                                 </div> :
                                 <Link href="/login"
-                                    className="hidden sm:flex items-center gap-2 bg-green-800 hover:bg-green-900 text-white px-5 py-2.5 rounded-xl text-sm font-semibold shadow-sm transition"
+                                    className=" sm:flex items-center gap-2 bg-green-800 hover:bg-green-900 text-white px-5 py-2.5 rounded-xl text-sm font-semibold shadow-sm transition"
                                 >
                                     <span>↪</span>
                                     Login
