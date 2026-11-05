@@ -19,7 +19,7 @@ const page = async ({ params }: ParamsProps) => {
     //console.log(data)
 
     return (
-        <div className='bg-green-50'>
+        <div className='bg-green-50 dark:bg-black'>
             <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
                 <Link href={'/events'}><p className='text-gray-400 pt-6 mb-9'> ← Back to Events</p></Link>
                 {/* Event Image */}

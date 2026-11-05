@@ -58,7 +58,7 @@ const EventcreatePage = () => {
             </h1>
 
             {/* Form Card */}
-            <div className="mx-auto mt-16 mb-6 w-full max-w-3xl border border-gray-200 bg-white p-6 shadow-md sm:p-8 lg:p-10">
+            <div className="mx-auto mt-16 mb-6 w-full max-w-3xl border border-gray-200 bg-white p-6 rounded-2xl shadow-lg shadow-green-200 sm:p-8 lg:p-10">
 
                 <form onSubmit={handlesubmit} className="space-y-5">
 

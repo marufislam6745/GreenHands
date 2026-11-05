@@ -9,7 +9,7 @@ const page = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events`)
     const events = await res.json()
     return (
-        <div className="min-h-screen bg-green-50 px-4 py-10">
+        <div className="min-h-screen bg-green-50 dark:bg-black px-4 py-10">
             <div className="max-w-7xl mx-auto">
                 <Link href={'/'} className='text-gray-400 pl-4'>←home</Link>
                 <div className="text-center mb-5">

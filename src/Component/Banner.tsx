@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const Banner = () => {
@@ -16,7 +17,7 @@ const Banner = () => {
         //         </div>
         //     </div>
         // </div>
-        <section className="bg-green-50 py-12 sm:py-16 lg:py-24">
+        <section className="bg-green-50 dark:bg-black py-12 sm:py-16 lg:py-24">
             <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-10 lg:gap-16">
 
@@ -38,9 +39,11 @@ const Banner = () => {
                             camps happening near you, or organise your own.
                         </p>
 
-                        <button className="mt-8 bg-green-700 hover:bg-green-800 text-white font-semibold px-7 py-3.5 rounded-xl transition duration-300 shadow-lg shadow-green-700/20">
-                            Create an Event →
-                        </button>
+                        <Link href={'/createEvent'}>
+                            <button className="mt-8 bg-green-700 hover:bg-green-800 text-white font-semibold px-7 py-3.5 rounded-xl transition duration-300 shadow-lg shadow-green-700/20">
+                                Create an Event →
+                            </button>
+                        </Link>
 
                         <div className="flex flex-wrap justify-center md:justify-start gap-6 mt-8 text-sm text-gray-600">
                             <span>🌳 Tree Plantation</span>

@@ -13,7 +13,7 @@ const RecentEvent = async () => {
 
     const sortdata = data.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
     return (
-        <div className="py-12 px-4 sm:px-6 lg:px-8 bg-green-50">
+        <div className="py-12 px-4 sm:px-6 lg:px-8 bg-green-50 dark:bg-black">
             <div className='max-w-7xl mx-auto'>
                 <div className='text-center'>
                     <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-4">Recent Upcomming Events</h2>

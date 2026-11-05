@@ -21,7 +21,7 @@ const ShowEvent = ({ events }: { events: Events[] }) => {
     const sortEvents = filteredEvents.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
     return (
-        <div className="min-h-screen bg-green-50 px-4 py-12">
+        <div className="min-h-screen bg-green-50 dark:bg-black px-4 py-12">
             <div className="max-w-7xl mx-auto">
 
                 {/* Heading

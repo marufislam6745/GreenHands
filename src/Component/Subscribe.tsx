@@ -17,7 +17,7 @@ const Subscribe = () => {
         //         <button>Subscribe</button>
         //     </form>
         // </div>
-        <section className="px-4 bg-green-50 sm:px-6 lg:px-8 py-16 md:py-24">
+        <section className="px-4 bg-green-50 dark:bg-black sm:px-6 lg:px-8 py-16 md:py-24">
 
             <div className="max-w-7xl mx-auto relative overflow-hidden
             rounded-[2rem] bg-linear-to-br from-green-900 to-emerald-500 p-7 sm:p-12

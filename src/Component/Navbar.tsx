@@ -19,11 +19,22 @@ import { FcApproval } from "react-icons/fc";
 import { FcPlus } from "react-icons/fc";
 import { MdManageAccounts } from "react-icons/md";
 import { redirect } from "next/navigation";
-import ThemeToggle from "./ThemeToggle";
+import { Moon, Sun } from "lucide-react"
+import { useTheme } from "next-themes"
+
+import { Button } from "@/components/ui/button"
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 
 
 
 export default function Navbar() {
+    const { setTheme } = useTheme()
     const [menuOpen, setMenuOpen] = useState(false);
 
     const { data: session } = authClient.useSession()
@@ -34,7 +45,7 @@ export default function Navbar() {
     }
 
     return (
-        <nav className="w-full bg-white border-b border-gray-100 shadow-sm">
+        <nav className="w-full bg-white dark:bg-black border-b border-gray-100 shadow-sm">
             <div className="max-w-7xl mx-auto px-5">
 
                 <div className="h-17 flex items-center justify-between">
@@ -81,7 +92,23 @@ export default function Navbar() {
                         >
                             {dark ? "☀️" : "🌙"}
                         </button> */}
-                        <ThemeToggle></ThemeToggle>
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="outline" size="icon">
+                                    <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+                                    <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+                                    <span className="sr-only">Toggle theme</span>
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                                <DropdownMenuItem onClick={() => setTheme("light")}>
+                                    Light
+                                </DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => setTheme("dark")}>
+                                    Dark
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
 
                         <div className="hidden items-center gap-4 text-sm md:flex">
                             {
@@ -107,7 +134,7 @@ export default function Navbar() {
                                                 </PopoverHeader>
                                             </PopoverContent>
                                         </Popover>
-                                        <button onClick={handleLogOut} className="font-bold py-1 px-3 border border-red-300 rounded-lg text-red-500 text-sm bg-gray-50 hover:bg-red-500 hover:text-white flex items-center gap-1">
+                                        <button onClick={handleLogOut} className="font-bold py-1.5 px-3 border border-red-300 rounded-lg text-red-500 text-sm bg-gray-50 hover:bg-red-500 hover:text-white flex items-center gap-1">
                                             <HiOutlineLogout />   Log Out
                                         </button>
                                     </div> :
