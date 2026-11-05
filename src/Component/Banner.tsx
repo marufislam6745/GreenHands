@@ -79,7 +79,7 @@ const Banner = () => {
 
                 </div>
             </div>
-            <div className='max-w-7xl mx-auto sm:px-6 lg:px-8 mt-16 flex items-center justify-center gap-9'>
+            <div className='max-w-7xl mx-auto sm:px-6 lg:px-8 mt-16 lg:flex items-center justify-center gap-9'>
                 <div className='bg-green-700 text-white p-4 rounded-2xl'>
                     <h3 className='text-3xl font-bold'>1250+</h3>
                     <p>Volunteers</p>
